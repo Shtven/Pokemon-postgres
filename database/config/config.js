@@ -1,5 +1,5 @@
 require('dotenv').config()
-const fs = require("fs")
+const fs = require('fs');
 
 module.exports = {
   development: {
@@ -13,5 +13,12 @@ module.exports = {
   production: {
     url: process.env.DATABASE_URL,
     dialect: 'postgres',
-  }
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,  // para que acepte certificados auto-firmados de Aiven
+      },
+    },
+  },
 };
+
