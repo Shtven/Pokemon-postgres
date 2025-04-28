@@ -16,7 +16,7 @@ module.exports = {
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,  // para que acepte certificados auto-firmados de Aiven
+        rejectUnauthorized: false,
       },
     },
   },
