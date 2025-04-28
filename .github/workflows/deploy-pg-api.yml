@@ -21,7 +21,7 @@ jobs:
  #     - run: npm install -g sequelize-cli@6.2.0 
 
  #     - run: sequelize db:migrate
-      - run: docker build -t adsoft/pg-restapi:${{github.sha}} .
+      - run: docker build -t shtven/pg-pokeapi:${{github.sha}} .
       - run: docker images
  #     - run: docker run --name api -p 8080:8080 -d adsoft/pg-restapi:${{github.sha}} 
  #     - run: docker ps
@@ -36,4 +36,4 @@ jobs:
         run:  docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
       - name: docker push
-        run:  docker push ${{ secrets.DOCKER_USER}}/pg-restapi:${{github.sha}}      
+        run:  docker push ${{ secrets.DOCKER_USER}}/pg-pokeapi:${{github.sha}}      
