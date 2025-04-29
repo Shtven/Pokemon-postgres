@@ -7,5 +7,7 @@ router.get('/', (req, res) => res.send('Welcome'))
 
 router.post('/pokemon', controllers.createPokemon);
 router.get('/pokemon', controllers.getAllPokemons);
+router.delete('/pokemon/:id', controllers.deletePokemon);
+router.put('/pokemon/:id', controllers.updatePokemon);
 
 module.exports = router;
