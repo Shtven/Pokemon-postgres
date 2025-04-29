@@ -15,8 +15,8 @@ jobs:
       - run: echo 'hello world ...'
       - run: ls -la
       - run: touch .env
-      - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}'  >> .env
-      - run: cat .env
+#      - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}'  >> .env
+#      - run: cat .env
       - run: docker build -t shtven/pg-pokeapi:${{github.sha}} .
       - run: docker images
    
