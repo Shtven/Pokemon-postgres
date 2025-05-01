@@ -31,6 +31,19 @@ const  deletePokemon  = async (req,  res)  =>  {
 
 };
 
+const getPokemonById = async (req, res) => {
+  try {
+    const pokemon = await models.pokemon.findByPk(req.params.id);
+    if (!pokemon) {
+      return res.status(404).json({ error: 'Pokémon no encontrado' });
+    }
+    res.json(pokemon);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al obtener el Pokémon' });
+  }
+};
+
 const updatePokemon  = async (req,  res)  =>  {
   console.log('updating pokemon...');
 
@@ -75,6 +88,7 @@ const getAllPokemons = async (req, res) => {
 module.exports = {
   createPokemon,
   updatePokemon,
+  getPokemonById,
   deletePokemon,
   getAllPokemons,
 };
